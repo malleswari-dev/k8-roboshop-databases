@@ -121,7 +121,15 @@ spec:
             memory: "128Mi"  
           limits:
             cpu: "100m"
-            memory: "128Mi"    
+            memory: "128Mi" 
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: frontend        
 
 ---
 
