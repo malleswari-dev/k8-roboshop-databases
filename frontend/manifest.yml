@@ -97,9 +97,6 @@ spec:
       - name: frontend
         image: malleswari1234/frontend:v1
         imagePullPolicy: Always
-        envFrom:
-        - configMapRef:
-            name: frontend
         ports:
         - name: liveness-port
           containerPort: 8080
@@ -139,6 +136,7 @@ metadata:
   name: frontend
   namespace: roboshop
 spec:
+  type: LoadBalancer
   selector:
     project: roboshop
     component: frontend
